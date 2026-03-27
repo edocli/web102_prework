@@ -47,6 +47,8 @@ function addGamesToPage(games) {
             <p>${game.description}</p>
         `;
 
+        element.addEventListener('click', () => {showGameModal(game)})
+
         // append the game to the games-container
         gamesContainer.append(element);
     }
@@ -173,3 +175,18 @@ firstGameContainer.append(firstGameElement);
 const secondGameElement = document.createElement("p");
 secondGameElement.innerHTML = secondGame.name;
 secondGameContainer.append(secondGameElement);
+
+document.getElementById("game-modal-close-btn").addEventListener("click", closeGameModal)
+const gameModal = document.getElementById("game-modal-container");
+function showGameModal(game) {
+    document.getElementById("game-title").textContent = game.name;
+    document.getElementById("game-modal-img").src = game.img;
+    document.getElementById("game-desc").textContent = game.description;
+    document.getElementById("game-backers").textContent = `Backers: ${game.backers.toLocaleString()}`;
+    document.getElementById("game-pledged").textContent = `Pledged: $${game.pledged.toLocaleString()}`;
+    document.getElementById("game-goal").textContent = `Goal: $${game.goal.toLocaleString()}`;
+    gameModal.showModal();
+}
+function closeGameModal() {
+    gameModal.close()
+}

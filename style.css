@@ -48,6 +48,29 @@ body {
     justify-content: space-around;
 }
 
+#game-modal-container {
+    width: 80%;
+    max-width: 800px;
+}
+
+#game-modal {
+    display: flex;
+    gap: 20px;
+}
+
+#game-modal-img {
+    width: 50%;
+    object-fit: cover;
+}
+
+#game-modal-close-btn {
+    position: absolute;
+    top: 1px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 36px;
+}
+
 .game-img {
     width: 100%;
     border-radius: 5px;
